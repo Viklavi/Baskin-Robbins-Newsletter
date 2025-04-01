@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baskin Robbins Newsletter</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+        body {
+            background-color: pink;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.3) 10%, transparent 10%),
+                              radial-gradient(rgba(255, 255, 255, 0.3) 10%, transparent 10%);
+            background-position: 0 0, 25px 25px;
+            background-size: 50px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .subscribe-btn {
+            background-color: #D63384;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            font-family: 'Pacifico', cursive;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .subscribe-btn:hover {
+            background-color: #C2185B;
+            transform: scale(1.05);
+        }
+
+        .virus-downloading {
+            font-size: 24px;
+            font-family: 'Pacifico', cursive;
+            color: #D63384;
+            display: none;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 4px solid #D63384;
+            width: 0;
+            animation: typing 2.5s steps(25) forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 10em;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        .april-fools-img {
+            display: none;
+            margin-top: 20px;
+            width: 300px;
+            height: auto;
+        }
+    </style>
+    <script>
+        function subscribe() {
+            // Hide the subscribe button and show the "Now downloading virus" message
+            document.querySelector('.subscribe-btn').style.display = 'none';
+            document.querySelector('.virus-downloading').style.display = 'block';
+
+            // Show the image after 3 seconds
+            setTimeout(function() {
+                const aprilFoolsImg = document.querySelector('.april-fools-img');
+                aprilFoolsImg.style.display = 'block'; // Show the image
+            }, 3000);  // 3000 ms = 3 seconds
+        }
+    </script>
+</head>
+<body>
+    <button class="subscribe-btn" onclick="subscribe()">Subscribe</button>
+    <div class="virus-downloading">Now downloading virus</div>
+    <img class="april-fools-img" src="https://i.imgur.com/f62TkWp.png" alt="Virus Image">
+</body>
+</html>
